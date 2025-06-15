@@ -70,6 +70,12 @@ function App() {
               </div>
           </div>
 
+          {/* Footer */}
+          <footer className="text-center text-sm text-white mt-4 space-y-1">
+              <p>© 2025 All Rights Reserved</p>
+              <p>Designed by Vimukthi Jayasanka</p>
+          </footer>
+
       </div>
   );
 };
