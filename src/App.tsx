@@ -1,5 +1,6 @@
 import './App.css'
-import { IoSearch } from 'react-icons/io5';
+import { IoSearch, IoSunny, IoWater } from 'react-icons/io5';
+import { FaWind } from 'react-icons/fa';
 import 'animate.css'
 
 function App() {
@@ -37,6 +38,35 @@ function App() {
                   <img src="/icon.png" alt="Weather Icon" className="w-30 mb-2 inline" />
                   <h2 className="text-5xl font-semibold text-gray-800 inline">Colombo</h2>
                   <p className="text-7xl font-bold text-gray-800">28°</p>
+              </div>
+          </div>
+
+          {/* Weather Details Grid */}
+          <div className="flex flex-col items-center text-center animate__animated animate__fadeInUp">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8 w-full max-w-4xl font-[poppins]">
+                  {/* Humidity */}
+                  <div className="bg-white/80 rounded-2xl p-6 text-center shadow-md
+                  hover:-translate-y-2 transition-transform duration-300 ease-in-out">
+                      <p className="text-gray-700 text-lg font-medium mb-1">Humidity</p>
+                      <IoWater className="text-blue-500 text-3xl mb-2 mx-auto" />
+                      <p className="text-2xl font-bold text-gray-800">68%</p>
+                  </div>
+
+                  {/* Wind */}
+                  <div className="bg-white/80 rounded-2xl p-6 text-center shadow-md
+                  hover:-translate-y-2 transition-transform duration-300 ease-in-out">
+                      <p className="text-gray-700 text-lg font-medium mb-1">Wind</p>
+                      <FaWind className="text-cyan-500 text-3xl mb-2 mx-auto" />
+                      <p className="text-2xl font-bold text-gray-800">9 <span className="text-lg font-normal">mph</span></p>
+                  </div>
+
+                  {/* UV Index */}
+                  <div className="bg-white/80 rounded-2xl p-6 text-center shadow-md
+                  hover:-translate-y-2 transition-transform duration-300 ease-in-out">
+                      <p className="text-gray-700 text-lg font-medium mb-1">UV Index</p>
+                      <IoSunny className="text-amber-500 text-3xl mb-2 mx-auto" />
+                      <p className="text-2xl font-bold text-gray-800">4 <span className="text-sm font-normal">Moderate</span></p>
+                  </div>
               </div>
           </div>
 
