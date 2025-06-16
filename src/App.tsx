@@ -10,7 +10,7 @@ function App() {
 
     useEffect(() => {
         fetchWeather();
-    })
+    },[])
 
     return (
       <div
@@ -29,8 +29,11 @@ function App() {
                       type="text"
                       value={city}
                       onChange={(e) => setCity(e.target.value)}
+                      onKeyDown={(e) => {
+                          if (e.key === 'Enter') fetchWeather();
+                      }}
                       className="px-5 py-2 rounded-full shadow-lg w-48 md:w-72 bg-white/80
-                      text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-100 cursor-pointer "
+                      text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-100 "
                   />
                   <span onClick={fetchWeather} className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 cursor-pointer">
                       <IoSearch className={'h-7 w-7 text-gray-800'}/>
@@ -75,7 +78,7 @@ function App() {
                   hover:-translate-y-2 transition-transform duration-300 ease-in-out">
                       <p className="text-gray-700 text-lg font-medium mb-1">Wind</p>
                       <FaWind className="text-cyan-500 text-3xl mb-2 mx-auto" />
-                      <p className="text-2xl font-bold text-gray-800"> <span className="text-lg font-normal">mph</span></p>
+                      <p className="text-2xl font-bold text-gray-800">{weather.current.wind_mph} <span className="text-lg font-normal">mph</span></p>
                   </div>
 
                   {/* UV Index */}
@@ -83,7 +86,7 @@ function App() {
                   hover:-translate-y-2 transition-transform duration-300 ease-in-out">
                       <p className="text-gray-700 text-lg font-medium mb-1">UV Index</p>
                       <IoSunny className="text-amber-500 text-3xl mb-2 mx-auto" />
-                      <p className="text-2xl font-bold text-gray-800">4 <span className="text-sm font-normal">Moderate</span></p>
+                      <p className="text-2xl font-bold text-gray-800">{weather.current.uv} <span className="text-sm font-normal">Moderate</span></p>
                   </div>
               </div>
           </div>
@@ -91,7 +94,7 @@ function App() {
 
           {/* Loading */}
           {loading && (
-              <div className="text-center text-white text-lg animate__animated animate__fadeIn">
+              <div className="text-center text-white text-lg animate__animated animate__fadeIn loader">
                   Loading...
               </div>
           )}
