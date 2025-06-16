@@ -22,14 +22,16 @@ Cloudy is a lightweight web application that displays the current weather in all
 
 ## 📦 Features
 
-- ✅ Displays current:
+- 🌍 Search weather by city name
+- ✅ Displays 
     - Temperature (°C)
     - Humidity (%)
     - Wind Speed (km/h)
     - UV Index
+- 📷 Dynamic background and icon based on weather condition
 - 🔄 Real-time data fetched from WeatherAPI
 - 📱 Responsive and clean UI
-- 🔐 API key handled securely using `.env` file
+- ⚡ Fast loading and performance-optimized
 
 ---
 
@@ -41,6 +43,17 @@ Cloudy is a lightweight web application that displays the current weather in all
 git clone https://github.com/vimukthijayasanka/cloudy-app.git
 cd cloudy-app
 
+- Install Dependencies
+npm install
+
+- Create .env File
+Create a .env file in the root directory and add your WeatherAPI key:
+
+VITE_WEATHER_API_KEY=your_api_key_here
+VITE_WEATHER_API_URL=http://api.weatherapi.com/v1/forecast.json
+
+- Run Locally
+npm run dev
 ```
 ---
 
@@ -55,7 +68,7 @@ cd cloudy-app
 ## 👤 Author
 
 **Vimukthi Jayasanka**
-GitHub: [@Vimukthi Jayasnka](https://github.com/vimukthijayasanka)
+GitHub: [@Vimukthi Jayasanka](https://github.com/vimukthijayasanka/cloudy-app)
 
 ---
 
