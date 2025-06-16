@@ -46,7 +46,8 @@ function App() {
           <div className="flex flex-col items-center text-center mb-6 animate__animated animate__fadeInDown
           hover:scale-105 transition-transform duration-300 ease-in-out">
               <div className="bg-white/20 backdrop-blur-2xl rounded-3xl shadow-lg
-              p-6 max-w-md w-full mx-auto border border-white/20">
+              p-6 w-full mx-auto border border-white/20 inline-block"
+                  style={{ minWidth: '200px', maxWidth: '90vw', width: 'auto' }}>
                   <img src="/icon.png" alt="Weather Icon" className="w-30 mb-2 inline" />
                   <h2 className="text-5xl font-semibold text-gray-800 inline">{weather.location.name}</h2>
                   <p className="text-7xl font-bold text-gray-800">{weather.current.temp_c}°</p>
