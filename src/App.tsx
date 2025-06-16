@@ -4,7 +4,7 @@ import { FaWind } from 'react-icons/fa';
 import { MdError } from "react-icons/md";
 import 'animate.css'
 import { useWeather } from "./useWeather.tsx";
-import {useEffect} from "react";
+import {useEffect, useMemo} from "react";
 import { getBackgroundImage, getWeatherIcon } from './utils/WeatherImages.ts';
 
 function App() {
@@ -15,12 +15,14 @@ function App() {
         fetchWeather();
     },[])
 
+    const bgImage = useMemo(() => getBackgroundImage(weather), [weather]);
+
     return (
       <div
           className="min-h-screen bg-no-repeat bg-cover bg-center bg-fixed px-4 md:px-16
           py-6 flex flex-col justify-between"
           style={{
-              backgroundImage: `url('${getBackgroundImage(weather)}')`
+              backgroundImage: `url('${bgImage}')`
           }}
       >
           {/* Top bar */}
@@ -63,7 +65,7 @@ function App() {
               <div className="bg-white/20 backdrop-blur-2xl rounded-3xl shadow-lg
               p-6 w-full mx-auto border border-white/20 inline-block"
                   style={{ minWidth: '200px', maxWidth: '90vw', width: 'auto' }}>
-                  <img src={`${getWeatherIcon(weather)}`} alt="Weather Icon" className="w-30 mb-2 inline" />
+                  <img loading={"lazy"} src={`${getWeatherIcon(weather)}`} alt="Weather Icon" className="w-30 mb-2 inline" />
                   <h2 className="text-5xl font-semibold text-white inline">{weather.location.name}</h2>
                   <p className="text-7xl font-bold text-white">{weather.current.temp_c}°</p>
               </div>
