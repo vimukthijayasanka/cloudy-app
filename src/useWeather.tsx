@@ -29,6 +29,7 @@ export const useWeather = () => {
     const WEATHER_URL = import.meta.env.VITE_WEATHER_API_URL;
 
     const fetchWeather = async () => {
+
         if (!city) return;
         try {
             const response = await axios.get<WeatherData>( WEATHER_URL ,{
@@ -37,6 +38,7 @@ export const useWeather = () => {
                     q: city
                 }
             });
+            console.log(WEATHER_URL, API_KEY)
             setWeather(response.data);
             setError(null);
         } catch {
