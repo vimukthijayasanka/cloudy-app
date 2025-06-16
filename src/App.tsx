@@ -1,6 +1,7 @@
 import './App.css'
 import { IoSearch, IoSunny, IoWater } from 'react-icons/io5';
 import { FaWind } from 'react-icons/fa';
+import { MdError } from "react-icons/md";
 import 'animate.css'
 import { useWeather } from "./useWeather.tsx";
 import {useEffect} from "react";
@@ -57,8 +58,17 @@ function App() {
 
           {/* Error */}
           {error && (
-              <div className="text-center text-red-500 text-lg animate__animated animate__shakeX mb-4">
-                  {error}
+              <div className="relative bg-white/70 backdrop-blur-md border-l-4 border-red-500 rounded-2xl p-6 text-center shadow-xl max-w-md mx-auto
+      hover:-translate-y-2 transition-transform duration-300 ease-in-out animate__animated animate__shakeX">
+
+                  <div className="flex items-center justify-center space-x-3 mb-3 text-red-600">
+                      <MdError className={"text-2xl"}/>
+                      <span className="text-lg font-semibold">{error}</span>
+                  </div>
+
+                  <p className="text-gray-700 text-sm">
+                      Please check the input and try again.
+                  </p>
               </div>
           )}
 
