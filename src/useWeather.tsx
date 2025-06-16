@@ -1,12 +1,13 @@
 import {useState} from "react";
 import axios from "axios";
 
-interface WeatherData {
+export interface WeatherData {
     location: {
         name: string;
     };
     current: {
         temp_c: number;
+        is_day: number;
         condition: {
             icon: string;
             text: string;
