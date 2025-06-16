@@ -1,11 +1,12 @@
 import './App.css'
-import { IoSearch, IoSunny, IoWater, IoReload } from 'react-icons/io5';
-import { FaWind } from 'react-icons/fa';
+import { IoSearch, IoReload } from 'react-icons/io5';
 import { MdError } from "react-icons/md";
 import 'animate.css'
 import { useWeather } from "./useWeather.tsx";
 import {useEffect, useMemo} from "react";
-import { getBackgroundImage, getWeatherIcon } from './utils/WeatherImages.ts';
+import { getBackgroundImage } from './utils/WeatherImages.ts';
+import WeatherDetailCard from "./components/WeatherDetailCard.tsx";
+import WeatherCard from "./components/WeatherCard.tsx";
 
 function App() {
 
@@ -62,13 +63,7 @@ function App() {
           {weather && (
           <div className="flex flex-col items-center text-center mb-6 animate__animated animate__fadeInDown
           hover:scale-105 transition-transform duration-300 ease-in-out">
-              <div className="bg-white/20 backdrop-blur-2xl rounded-3xl shadow-lg
-              p-6 w-full mx-auto border border-white/20 inline-block"
-                  style={{ minWidth: '200px', maxWidth: '90vw', width: 'auto' }}>
-                  <img loading={"lazy"} src={`${getWeatherIcon(weather)}`} alt="Weather Icon" className="w-30 mb-2 inline" />
-                  <h2 className="text-5xl font-semibold text-white inline">{weather.location.name}</h2>
-                  <p className="text-7xl font-bold text-white">{weather.current.temp_c}°</p>
-              </div>
+            <WeatherCard weather={weather}/>
           </div>
           )}
 
@@ -92,29 +87,7 @@ function App() {
           {weather && (
           <div className="flex flex-col items-center text-center animate__animated animate__fadeInUp">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8 w-full max-w-4xl font-[poppins]">
-                  {/* Humidity */}
-                  <div className="bg-white/80 rounded-2xl p-6 text-center shadow-md
-                  hover:-translate-y-2 transition-transform duration-300 ease-in-out">
-                      <p className="text-gray-700 text-lg font-medium mb-1">Humidity</p>
-                      <IoWater className="text-blue-500 text-3xl mb-2 mx-auto" />
-                      <p className="text-2xl font-bold text-gray-800">{weather.current.humidity}%</p>
-                  </div>
-
-                  {/* Wind */}
-                  <div className="bg-white/80 rounded-2xl p-6 text-center shadow-md
-                  hover:-translate-y-2 transition-transform duration-300 ease-in-out">
-                      <p className="text-gray-700 text-lg font-medium mb-1">Wind</p>
-                      <FaWind className="text-cyan-500 text-3xl mb-2 mx-auto" />
-                      <p className="text-2xl font-bold text-gray-800">{weather.current.wind_mph} <span className="text-lg font-normal">mph</span></p>
-                  </div>
-
-                  {/* UV Index */}
-                  <div className="bg-white/80 rounded-2xl p-6 text-center shadow-md
-                  hover:-translate-y-2 transition-transform duration-300 ease-in-out">
-                      <p className="text-gray-700 text-lg font-medium mb-1">UV Index</p>
-                      <IoSunny className="text-amber-500 text-3xl mb-2 mx-auto" />
-                      <p className="text-2xl font-bold text-gray-800">{weather.current.uv} <span className="text-sm font-normal">Moderate</span></p>
-                  </div>
+                 <WeatherDetailCard humidity={weather.current.humidity} wind={weather.current.wind_mph} uv={weather.current.uv}></WeatherDetailCard>
               </div>
           </div>
           )}
