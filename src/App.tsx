@@ -1,5 +1,5 @@
 import './App.css'
-import { IoSearch, IoSunny, IoWater } from 'react-icons/io5';
+import { IoSearch, IoSunny, IoWater, IoReload } from 'react-icons/io5';
 import { FaWind } from 'react-icons/fa';
 import { MdError } from "react-icons/md";
 import 'animate.css'
@@ -24,6 +24,7 @@ function App() {
           {/* Top bar */}
           <div className="flex justify-between items-center mb-6">
               <h1 className="text-4xl font-bold text-white">Cloudy</h1>
+              <div className="flex items-center gap-3">
               <div className="relative">
                   {/*Search bar*/}
                   <input
@@ -40,6 +41,17 @@ function App() {
                       <IoSearch className={'h-7 w-7 text-gray-800'}/>
           </span>
               </div>
+                  {/* Refresh Button */}
+                  <button
+                      onClick={fetchWeather}
+                      className="flex items-center justify-center p-2 bg-white/60 hover:bg-white/80 backdrop-blur-md
+      rounded-full shadow-md transition duration-300 ease-in-out"
+                      aria-label="Refresh Weather"
+                      title="Refresh"
+                  >
+                      <IoReload className="h-5 w-5 text-gray-800" />
+                  </button>
+          </div>
           </div>
 
           {/* Main Weather Card */}
@@ -119,6 +131,5 @@ function App() {
       </div>
   );
 };
-
 
 export default App
