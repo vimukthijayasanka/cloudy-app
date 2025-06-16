@@ -6,7 +6,7 @@ Cloudy is a lightweight web application that displays the current weather in all
 
 ## 🌐 Live Demo
 
-👉 [View Live Website]()
+👉 [View Live Website](https://cloudy-app.vercel.app/)
 
 ---
 
@@ -26,7 +26,7 @@ Cloudy is a lightweight web application that displays the current weather in all
 - ✅ Displays 
     - Temperature (°C)
     - Humidity (%)
-    - Wind Speed (km/h)
+    - Wind Speed (mph)
     - UV Index
 - 📷 Dynamic background and icon based on weather condition
 - 🔄 Real-time data fetched from WeatherAPI
@@ -60,7 +60,7 @@ npm run dev
 ## 🏷️ Version
 
 ```
-0.1.0
+1.0.0
 ```
 
 ---
