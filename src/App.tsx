@@ -121,8 +121,8 @@ function App() {
 
           {/* Loading */}
           {loading && (
-              <div className="text-center text-white text-lg animate__animated animate__fadeIn loader">
-                  Loading...
+              <div className="flex justify-center items-center h-32 animate__animated animate__fadeIn">
+                  <div className="loader"></div>
               </div>
           )}
 
